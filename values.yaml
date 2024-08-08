@@ -1,0 +1,14 @@
+app:
+  image: nginx
+  tag: perl #1.21.6 latest
+  containerPort: 80
+  name: nginx
+  replicas: 3
+  namespace: default
+
+service:
+  type: LoadBalancer
+
+nginx:
+  title: EKS!
+  heading: Welcome to EKS-Helm-Nginx!

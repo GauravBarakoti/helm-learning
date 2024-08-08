@@ -1,0 +1,7 @@
+app: 
+  replicas: 3
+
+nginx:
+  title: EKS!
+  heading: Welcome to EKS-Helm-Nginx Uing Cutom-Values!
+

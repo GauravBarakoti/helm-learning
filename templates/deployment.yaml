@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}  # nginx-deployment
+  namespace: {{ .Values.app.namespace}}
+  labels:
+    app: {{ .Values.app.name }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+{{ include "containerspec" . | indent 8 }}
+      volumes:
+        - name:  {{ .Values.app.name }}-config-volume
+          configMap:
+            name: {{ .Values.app.name }}-configmap

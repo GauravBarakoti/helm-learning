@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.app.name }}-configmap
+  namespace: {{ .Values.app.namespace}}
+data:
+  index.html: |
+{{ include "nginxpage" . | indent 4 }}
